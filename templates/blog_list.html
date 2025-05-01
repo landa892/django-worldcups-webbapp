@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Listado de Mundiales</h2>
+<form method="get" action="{% url 'search' %}">
+  {{ form.query }} <button type="submit">Buscar</button>
+</form>
+{% if worldcups %}
+  <ul>
+    {% for wc in worldcups %}
+      <li><a href="{% url 'worldcup_detail' wc.pk %}">{{ wc.year }} - {{ wc.champion }}</a></li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'worldcup_create' %}">Crear Mundial</a>
+{% else %}
+  <p>No hay mundiales aún.</p>
+{% endif %}
+{% endblock %}

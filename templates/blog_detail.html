@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>{{ worldcup.year }} - {{ worldcup.champion }}</h2>
+<img src="{{ worldcup.logo.url }}" alt="" width="200">
+<p>{{ worldcup.description|safe }}</p>
+<a href="{% url 'worldcup_update' worldcup.pk %}">Editar</a> |
+<a href="{% url 'worldcup_delete' worldcup.pk %}">Eliminar</a>
+{% endblock %}

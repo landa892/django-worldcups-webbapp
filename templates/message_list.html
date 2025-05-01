@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Mensajes</h2>
+<ul>
+  {% for msg in messages %}
+    <li><a href="{% url 'message_detail' msg.pk %}">{{ msg.subject }}</a></li>
+  {% endfor %}
+</ul>
+<a href="{% url 'message_create' %}">Nuevo Mensaje</a>
+{% endblock %}
